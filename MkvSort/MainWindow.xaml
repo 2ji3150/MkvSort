@@ -1,0 +1,32 @@
+﻿<Window x:Class="MkvSort.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        MinWidth="500"
+        MinHeight="200"
+        Title="MKV連番名前付け" Height="600" Width="500">
+    <Grid>
+        <ListView x:Name="listView" Margin="10,14,10,42" SizeChanged="ListView_SizeChanged" ItemsSource="{Binding}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="変更前"                                        
+         DisplayMemberBinding="{Binding Before}"  />
+                    <GridViewColumn Header="変更後"  
+         DisplayMemberBinding="{Binding After}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button x:Name="open" Content="開く" Margin="10,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Width="100" Click="Open_Click" AllowDrop="True"/>
+        <Button x:Name="start" Content="スタート" Margin="0,0,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Click="Start_Click"/>
+        <Grid HorizontalAlignment="Center" Height="25" VerticalAlignment="Bottom" Width="228" Margin="0,0,0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="AnimeName" Height="21" TextWrapping="Wrap" Text="アニメ名をこちらに入力" VerticalAlignment="Bottom" Width="152" Margin="0" HorizontalAlignment="Right"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="AnimeName" VerticalAlignment="Bottom" Margin="0,0,0,3"/>
+        </Grid>
+    </Grid>
+</Window>
